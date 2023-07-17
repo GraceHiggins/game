@@ -1,0 +1,44 @@
+# Chess Game
+# Define the Chessboard
+board = [['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'],
+         ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+         ['.', '.', '.', '.', '.', '.', '.', '.'],
+         ['.', '.', '.', '.', '.', '.', '.', '.'],
+         ['.', '.', '.', '.', '.', '.', '.', '.'],
+         ['.', '.', '.', '.', '.', '.', '.', '.'],
+         ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+         ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r']]
+
+# Display the Chessboard
+def display_board(board):
+    for row in board:
+        print(' '.join(row))
+    print()
+
+display_board(board)
+
+while True:
+    # Get input from players
+    start = input("Enter the piece position you want to move (e.g. A2): ")
+    end = input("Enter the destination position for the piece (e.g. A4): ")
+
+    # Convert input to coordinates
+    start_row, start_col = int(start[1]) - 1, ord(start[0]) - ord('A')
+    end_row, end_col = int(end[1]) - 1, ord(end[0]) - ord('A')
+
+    # Check if move is valid
+    piece = board[start_row][start_col]
+    if piece == '.':
+        print("There is no piece at the starting position.")
+        continue
+
+    if piece == 'P' and start_row != 1:
+        print("Invalid move for the pawn.")
+        continue
+
+    # Update the board
+    board[start_row][start_col] = '.'
+    board[end_row][end_col] = piece
+
+    # Display the updated board
+    display_board(board)
