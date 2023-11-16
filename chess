@@ -1,4 +1,4 @@
-# Chess Game
+# Chess Game 
 # Define the Chessboard
 board = [['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'],
          ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
@@ -41,4 +41,4 @@ while True:
     board[end_row][end_col] = piece
 
     # Display the updated board
-    display_board(board)
+    display_board(board) #my 1st project
